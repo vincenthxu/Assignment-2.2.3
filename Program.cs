@@ -24,6 +24,9 @@ namespace Assignment_2._2._3
                     double side = Convert.ToDouble(Console.ReadLine());
                     shape = new Square() { Side = side };
                     break;
+                default:
+                    Console.WriteLine("Error: invalid option!");
+                    break;
             }
             if (shape != null)
                 Console.WriteLine($"Area is: {shape.CalculateArea()}");
