@@ -52,11 +52,19 @@ namespace Assignment_2._2._3
         public int ID { get; set; }
         public String? Name { get; set; }
         public Color Color { get; set; }
+        public int Sides { get; }
         public abstract double CalculateArea();
     }
     public class Circle : Shape
     {
         public double Radius { get; set; }
+        public double Diameter
+        {
+            get
+            {
+                return Radius * 2;
+            }
+        }
         public double Circumference
         {
             get
@@ -72,6 +80,13 @@ namespace Assignment_2._2._3
     public class Square : Shape
     {
         public double Side { get; set; }
+        public double Diagonal
+        {
+            get
+            {
+                return Math.Sqrt(2) * Side;
+            }
+        }
         public double Perimeter
         {
             get
