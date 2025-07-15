@@ -55,7 +55,7 @@ namespace Assignment_2._2._3
         public int ID { get; set; }
         public String? Name { get; set; }
         public Color Color { get; set; }
-        public int Sides { get; }
+        public int NumberOfSides { get; }
         public virtual double Perimeter { get; }
         public abstract double CalculateArea();
     }
