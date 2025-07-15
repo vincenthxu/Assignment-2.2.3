@@ -16,7 +16,7 @@ namespace Assignment_2._2._3
         };
         static double GetUserValue(string input)
         {
-            Console.WriteLine($"Please provide {_shapeToVariable[input]}:");
+            Console.WriteLine($"Please provide {_shapeToVariable[input]} for {input}:");
             return Convert.ToDouble(Console.ReadLine());
         }
         static void Main(string[] args)
@@ -46,7 +46,7 @@ namespace Assignment_2._2._3
             if (shape != null)
             {
                 Console.WriteLine($"Area is: {shape.CalculateArea()}");
-                Console.WriteLine($"Perimeter is {shape.Perimeter}");
+                Console.WriteLine($"Perimeter is: {shape.Perimeter}");
             }
         }
     }
