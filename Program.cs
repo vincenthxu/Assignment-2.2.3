@@ -4,25 +4,40 @@ namespace Assignment_2._2._3
 {
     internal class Program
     {
+        static Dictionary<string, string> _inputToShape = new()
+        {
+            { "a", "circle" },
+            { "b", "square" },
+        };
+        static Dictionary<string, string> _shapeToVariable = new()
+        {
+            { "circle", "radius" },
+            { "square", "side" },
+        };
+        static double GetUserValue(string input)
+        {
+            Console.WriteLine($"Please provide {_shapeToVariable[_inputToShape[input]]}:");
+            return Convert.ToDouble(Console.ReadLine());
+        }
         static void Main(string[] args)
         {
             Console.WriteLine("Please choose a shape:");
-            Console.WriteLine("a) circle");
-            Console.WriteLine("b) square");
-            String? input = Console.ReadLine();
 
+            foreach (var (key, value) in _inputToShape)
+            {
+                Console.WriteLine($"{key}) {value}");
+            }
+
+            String? input = Console.ReadLine();
             Shape? shape = null;
+
             switch (input)
             {
                 case "a":
-                    Console.WriteLine("Please provide radius:");
-                    double radius = Convert.ToDouble(Console.ReadLine());
-                    shape = new Circle() { Radius = radius };
+                    shape = new Circle() { Radius = GetUserValue(input) };
                     break;
                 case "b":
-                    Console.WriteLine("Please provide side:");
-                    double side = Convert.ToDouble(Console.ReadLine());
-                    shape = new Square() { Side = side };
+                    shape = new Square() { Side = GetUserValue(input) };
                     break;
                 default:
                     Console.WriteLine("Error: invalid option!");
@@ -43,9 +58,9 @@ namespace Assignment_2._2._3
     {
         public double Radius { get; set; }
         public double Circumference
-        { 
-            get 
-            {  
+        {
+            get
+            {
                 return Math.PI * 2 * Radius;
             }
         }
