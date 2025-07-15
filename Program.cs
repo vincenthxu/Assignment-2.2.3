@@ -76,7 +76,13 @@ namespace Assignment_2._2._3
                 return Math.PI * 2 * Radius;
             }
         }
-        public override double Perimeter { get {  return Circumference; } }
+        public override double Perimeter
+        {
+            get
+            { 
+                return Circumference;
+            }
+        }
         public override double CalculateArea()
         {
             return Math.PI * Radius * Radius;
