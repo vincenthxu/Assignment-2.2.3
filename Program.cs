@@ -16,7 +16,7 @@ namespace Assignment_2._2._3
         };
         static double GetUserValue(string input)
         {
-            Console.WriteLine($"Please provide {_shapeToVariable[_inputToShape[input]]}:");
+            Console.WriteLine($"Please provide {_shapeToVariable[input]}:");
             return Convert.ToDouble(Console.ReadLine());
         }
         static void Main(string[] args)
@@ -34,17 +34,20 @@ namespace Assignment_2._2._3
             switch (input)
             {
                 case "a":
-                    shape = new Circle() { Radius = GetUserValue(input) };
+                    shape = new Circle() { Radius = GetUserValue(_inputToShape[input]) };
                     break;
                 case "b":
-                    shape = new Square() { Side = GetUserValue(input) };
+                    shape = new Square() { Side = GetUserValue(_inputToShape[input]) };
                     break;
                 default:
                     Console.WriteLine("Error: invalid option!");
                     break;
             }
             if (shape != null)
+            {
                 Console.WriteLine($"Area is: {shape.CalculateArea()}");
+                Console.WriteLine($"Perimeter is {shape.Perimeter}");
+            }
         }
     }
     public abstract class Shape
@@ -53,6 +56,7 @@ namespace Assignment_2._2._3
         public String? Name { get; set; }
         public Color Color { get; set; }
         public int Sides { get; }
+        public virtual double Perimeter { get; }
         public abstract double CalculateArea();
     }
     public class Circle : Shape
@@ -72,6 +76,7 @@ namespace Assignment_2._2._3
                 return Math.PI * 2 * Radius;
             }
         }
+        public override double Perimeter { get {  return Circumference; } }
         public override double CalculateArea()
         {
             return Math.PI * Radius * Radius;
@@ -87,7 +92,7 @@ namespace Assignment_2._2._3
                 return Math.Sqrt(2) * Side;
             }
         }
-        public double Perimeter
+        public override double Perimeter
         {
             get
             {
