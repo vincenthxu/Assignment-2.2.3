@@ -42,6 +42,13 @@ namespace Assignment_2._2._3
     public class Circle : Shape
     {
         public double Radius { get; set; }
+        public double Circumference
+        { 
+            get 
+            {  
+                return Math.PI * 2 * Radius;
+            }
+        }
         public override double CalculateArea()
         {
             return Math.PI * Radius * Radius;
@@ -50,6 +57,13 @@ namespace Assignment_2._2._3
     public class Square : Shape
     {
         public double Side { get; set; }
+        public double Perimeter
+        {
+            get
+            {
+                return 4 * Side;
+            }
+        }
         public override double CalculateArea()
         {
             return Side * Side;
